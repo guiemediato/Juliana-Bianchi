@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistente de Vendas B2B</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        .sidebar {
+            width: 300px;
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .main-content {
+            flex: 1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>Assistente de Vendas B2B</h1>
+    
+    <div class="container">
+        <div class="sidebar">
+            <h2>Filtros</h2>
+            <label for="filtro-cidade">Cidade:</label>
+            <select id="filtro-cidade">
+                <option value="">Todas as cidades</option>
+            </select>
+            
+            <label for="filtro-segmento">Segmento:</label>
+            <select id="filtro-segmento">
+                <option value="">Todos os segmentos</option>
+            </select>
+            
+            <button id="btn-filtrar">Filtrar</button>
+            
+            <h2>Adicionar Lead</h2>
+            <form id="form-lead">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required>
+                
+                <label for="empresa">Empresa:</label>
+                <input type="text" id="empresa" required>
+                
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" required>
+                
+                <label for="segmento">Segmento:</label>
+                <input type="text" id="segmento" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone">
+                
+                <button type="submit">Adicionar Lead</button>
+            </form>
+        </div>
+        
+        <div class="main-content">
+            <h2>Leads</h2>
+            <div id="leads-table-container">
+                <table id="leads-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Empresa</th>
+                            <th>Cidade</th>
+                            <th>Segmento</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leads-tbody">
+                        <!-- Aqui serão inseridos os leads -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="assistente.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
