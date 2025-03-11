@@ -98,6 +98,40 @@
         </div>
         
         <div class="main-content">
+            <!-- Adicione esta seção antes da tabela de leads -->
+<div class="dashboard">
+    <h2>Dashboard</h2>
+    <div class="dashboard-cards">
+        <div class="card">
+            <h3>Total de Leads</h3>
+            <p id="total-leads" class="card-value">0</p>
+        </div>
+    </div>
+    
+    <div class="dashboard-row">
+        <div class="dashboard-col">
+            <h3>Distribuição por Status</h3>
+            <div id="status-distribution"></div>
+        </div>
+        
+        <div class="dashboard-col">
+            <div class="mini-card">
+                <h3>Top 5 Cidades</h3>
+                <ul id="top-cidades"></ul>
+            </div>
+            
+            <div class="mini-card">
+                <h3>Top 5 Segmentos</h3>
+                <ul id="top-segmentos"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Adicione botão de exportar na seção principal -->
+<div class="actions-bar">
+    <button id="btn-exportar">Exportar para CSV</button>
+</div>
             <h2>Leads</h2>
             <div id="leads-table-container">
                 <table id="leads-table">
