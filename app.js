@@ -168,3 +168,44 @@ try {
 
 // Salvar dados quando a página for fechada
 window.addEventListener('beforeunload', salvarDados);
+// Adicione esta função ao app.js
+function exportarParaCSV() {
+    // Definir cabeçalhos
+    const headers = ['Nome', 'Empresa', 'Cargo', 'Email', 'Telefone', 'Cidade', 'Segmento', 'Status', 'Data de Criação'];
+    
+    // Converter leads para linhas de CSV
+    const csvRows = [];
+    csvRows.push(headers.join(','));
+    
+    assistente.leads.forEach(lead => {
+        const row = [
+            `"${lead.nome || ''}"`,
+            `"${lead.empresa || ''}"`,
+            `"${lead.cargo || ''}"`,
+            `"${lead.email || ''}"`,
+            `"${lead.telefone || ''}"`,
+            `"${lead.cidade || ''}"`,
+            `"${lead.segmento || ''}"`,
+            `"${lead.status || ''}"`,
+            `"${lead.dataCriacao ? new Date(lead.dataCriacao).toLocaleDateString() : ''}"`
+        ];
+        csvRows.push(row.join(','));
+    });
+    
+    // Criar blob e link para download
+    const csvString = csvRows.join('\n');
+    const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'leads_export_' + new Date().toISOString().slice(0, 10) + '.csv');
+    link.style.display = 'none';
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+// Adicionar botão de exportar no HTML
+document.getElementById('btn-exportar').addEventListener('click', exportarParaCSV);
