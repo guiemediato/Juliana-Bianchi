@@ -209,3 +209,28 @@ function exportarParaCSV() {
 
 // Adicionar botão de exportar no HTML
 document.getElementById('btn-exportar').addEventListener('click', exportarParaCSV);
+// Adicionar chamada ao dashboard
+function inicializarAplicacao() {
+    atualizarTabelaLeads(assistente.leads);
+    atualizarFiltros();
+    atualizarDashboard();
+}
+
+// Atualizar chamada inicial
+document.addEventListener('DOMContentLoaded', inicializarAplicacao);
+
+// Adicionar chamada ao dashboard após adicionar lead
+document.getElementById('form-lead').addEventListener('submit', (e) => {
+    // ... código existente ...
+    
+    // Atualizar dashboard também
+    atualizarDashboard();
+});
+
+// Atualizar dashboard após filtragem
+document.getElementById('btn-filtrar').addEventListener('click', () => {
+    // ... código existente ...
+    
+    // Atualizar dashboard também
+    atualizarDashboard();
+});
